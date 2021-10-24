@@ -6,11 +6,12 @@
         "module": "es6",
         "target": "es5",
         "allowJs": true,
-        "jsx": "react",
+        "jsx": "react-jsx",
         "moduleResolution": "node"
     },
     "include": [
-        "src"
+        "src",
+        "./test/unit/jest-setup.ts",
     ],
     "ts-node": {
         "compilerOptions": {
