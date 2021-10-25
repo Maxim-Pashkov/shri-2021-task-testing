@@ -9,8 +9,8 @@ describe('catalog test', function() {
         await button.click();
         await this.browser.url('/hw/store/cart');
         const cartTable = await this.browser.$('.Cart-Table');
+        await this.browser.execute('localStorage.clear()');
         await cartTable.waitForExist();
-        await this.browser.execute('localStorage.clear()')
     });
 
     it('cart badge is outputted', async function() {
@@ -19,7 +19,7 @@ describe('catalog test', function() {
         await button.waitForExist();
         await button.click();
         const badge = await this.browser.$('.text-success');
-        await badge.waitForExist();
         await this.browser.execute('localStorage.clear()')
+        await badge.waitForExist();        
     });
 });
