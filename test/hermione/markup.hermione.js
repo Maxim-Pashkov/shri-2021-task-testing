@@ -23,6 +23,7 @@ describe('markup test', function() {
         await this.browser.setWindowSize(520, 480);
         const toggler = await this.browser.$('.navbar-toggler');
         await toggler.click();
+        this.browser.execute(() => document.querySelector('.navbar-toggler').blur());
         await this.browser.assertView('plain', '.navbar', {
             compositeImage: true,
             allowViewportOverflow: true,
