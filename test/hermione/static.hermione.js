@@ -3,10 +3,10 @@ const { mobile } = require("./mobile");
 describe('pages url test', function() {
     async function home(browser) {
         await browser.url('/hw/store/');
-        const content = await browser.$('.Home');
+        const content = await browser.$('.row');
         await content.waitForExist();
         await content.scrollIntoView();           
-        await browser.assertView('plain', '.Home', {
+        await browser.assertView('plain', '.row', {
             compositeImage: true,
         });     
     }
