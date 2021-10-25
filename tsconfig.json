@@ -10,8 +10,7 @@
         "moduleResolution": "node"
     },
     "include": [
-        "src",
-        "./test/unit/jest-setup.ts",
+        "src"
     ],
     "ts-node": {
         "compilerOptions": {

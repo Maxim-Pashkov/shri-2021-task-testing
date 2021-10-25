@@ -1,4 +1,5 @@
 import { it, expect, describe } from '@jest/globals';
+import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { getApplication } from './getApplication';
