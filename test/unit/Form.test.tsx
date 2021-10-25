@@ -70,6 +70,26 @@ describe('Form test', () => {
         expect(isSubmitted).toBeFalsy();
     });
 
+    it('prevent submit with wrong Name', () => {
+        let isSubmitted = false;
+        const onSubmit = () => (isSubmitted = true);
+
+        const { application } = getApplication(
+            () => <Form onSubmit={onSubmit} />,
+            {}
+        );
+
+        const { getByLabelText, container } = render(application);
+
+        userEvent.type(getByLabelText('Name'), ' ');
+        userEvent.type(getByLabelText('Phone'), inputs.phone);
+        userEvent.type(getByLabelText('Address'), inputs.address);
+
+        userEvent.click(container.querySelector('button'));
+
+        expect(isSubmitted).toBeFalsy();
+    });
+
     it('prevent submit with wrong Phone', () => {
         let isSubmitted = false;
         const onSubmit = () => (isSubmitted = true);
@@ -84,6 +104,26 @@ describe('Form test', () => {
         userEvent.type(getByLabelText('Name'), inputs.name);
         userEvent.type(getByLabelText('Phone'), 'not phone');
         userEvent.type(getByLabelText('Address'), inputs.address);
+
+        userEvent.click(container.querySelector('button'));
+
+        expect(isSubmitted).toBeFalsy();
+    });
+
+    it('prevent submit with wrong Address', () => {
+        let isSubmitted = false;
+        const onSubmit = () => (isSubmitted = true);
+
+        const { application } = getApplication(
+            () => <Form onSubmit={onSubmit} />,
+            {}
+        );
+
+        const { getByLabelText, container } = render(application);
+
+        userEvent.type(getByLabelText('Name'), inputs.name);
+        userEvent.type(getByLabelText('Phone'), inputs.phone);
+        userEvent.type(getByLabelText('Address'), ' ');
 
         userEvent.click(container.querySelector('button'));
 
