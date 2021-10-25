@@ -1,5 +1,5 @@
-describe('catalog test', function() {
-    it('cart saved in storage', async function() {
+describe('cart test', function() {
+    it('cart processing', async function() {
         await this.browser.url('/hw/store/catalog');
 
         const link = await this.browser.$('.card-link');
