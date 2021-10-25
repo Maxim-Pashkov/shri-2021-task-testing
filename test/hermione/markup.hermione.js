@@ -23,21 +23,21 @@ describe('markup test', function() {
         await this.browser.setWindowSize(520, 480);
         const toggler = await this.browser.$('.navbar-toggler');
         await toggler.click();
-        const navBar = await this.browser.$('.navbar-nav');
-        await navBar.waitForDisplayed();
+        const nav = await this.browser.$('.navbar-nav');
+        await nav.waitForDisplayed();
         await this.browser.setWindowSize(width, height);
     });
 
-    it('navbar mobile opened closed after second click by toggler', async function() {
+    it('navbar mobile closed after second click by toggler', async function() {
         await this.browser.url('/hw/store/');  
         const {width, height} = await this.browser.getWindowSize();
         await this.browser.setWindowSize(520, 480);
         const toggler = await this.browser.$('.navbar-toggler');
         await toggler.click();
         await toggler.click();
-        const navBar = await this.browser.$('.navbar-nav');
-        await navBar.waitUntil(async function() {
-            return await navBar.isDisplayed() === false;
+        const nav = await this.browser.$('.navbar-nav');
+        await nav.waitUntil(async function() {
+            return await nav.isDisplayed() === false;
         }, {
             timeout: 5000,
             timeoutMsg: 'navbar is displayed after close',
@@ -53,9 +53,9 @@ describe('markup test', function() {
         await toggler.click();
         const link = await this.browser.$('.nav-link');
         await link.click();
-        const navBar = await this.browser.$('.navbar-nav');
-        await navBar.waitUntil(async function() {
-            return await navBar.isDisplayed() === false;
+        const nav = await this.browser.$('.navbar-nav');
+        await nav.waitUntil(async function() {
+            return await nav.isDisplayed() === false;
         }, {
             timeout: 5000,
             timeoutMsg: 'navbar is displayed after close',
