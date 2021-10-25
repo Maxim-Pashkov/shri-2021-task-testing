@@ -1,11 +1,6 @@
-describe('pages url test', function() {
-    async function mobile(browser, fn) {
-        const {width, height} = await browser.getWindowSize();   
-        await browser.setWindowSize(520, height);
-        await fn(browser);
-        await browser.setWindowSize(width, height);
-    }
+const { mobile } = require("./mobile");
 
+describe('pages url test', function() {
     async function home(browser) {
         await browser.url('/hw/store/');
         const content = await browser.$('.Home');
