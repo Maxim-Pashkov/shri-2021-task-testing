@@ -1,6 +1,5 @@
 module.exports = {
     baseUrl: 'http://localhost:3000',
-    retry: 2,
     sets: {
         common: {
             files: 'test/hermione'
@@ -14,9 +13,4 @@ module.exports = {
             }
         }
     },
-    plugins: {
-        'html-reporter/hermione': {
-            path: 'hermione-html-report',
-        }
-    }
 };
