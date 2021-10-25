@@ -20,10 +20,6 @@ describe('pages url test', function() {
         await home(this.browser);        
     });
 
-    it('Home mobile', async function() {
-        await mobile(this.browser, home);       
-    });
-
     async function delivery(browser) {
         await browser.url('/hw/store/delivery');
         const content = await browser.$('.Delivery');
