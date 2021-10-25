@@ -14,6 +14,14 @@ describe('Application test', () => {
         expect(container.querySelector('a[href="/"]')).toBeTruthy();
     });
 
+    it('link to Home on brand is exists', () => {
+        const { application } = getApplication(() => <Application />, {});
+
+        const { container } = render(application);
+
+        expect(container.querySelector('a.navbar-brand[href="/"]')).toBeTruthy();
+    });
+
     it('link to Catalog is exists', () => {
         const { application } = getApplication(() => <Application />, {});
 
