@@ -10,14 +10,31 @@ describe('catalog test', function() {
         await button.waitForExist();
         await button.click();
 
-        const badge = await this.browser.$('.text-success');
         try {
-            await badge.waitForExist(); 
-
             await this.browser.url('/hw/store/cart');
 
             const cartTable = await this.browser.$('.Cart-Table');
             await cartTable.waitForExist();
+
+            const checkoutButton = await this.browser.$('.Form-Submit');
+            await checkoutButton.click();
+
+            const feedback = await this.browser.$('.invalid-feedback');
+            await feedback.waitForDisplayed();
+
+            const nameInput = await this.browser.$('#f-name')
+            await nameInput.setValue('test name');
+
+            const phoneInput = await this.browser.$('#f-phone')
+            await phoneInput.setValue('1231233123');
+
+            const addressInput = await this.browser.$('#f-address')
+            await addressInput.setValue('test address');
+
+            await checkoutButton.click();
+
+            const alertSuccess = await this.browser.$('.alert-success');
+            await alertSuccess.waitForDisplayed();
         } finally {
             await this.browser.execute('localStorage.clear()');
         }      

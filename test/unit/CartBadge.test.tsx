@@ -23,10 +23,10 @@ describe('CartBadge test', () => {
             cartState
         );
 
-        const { container } = render(application);
+        const { queryByTestId } = render(application);
 
         expect(
-            !!container.querySelector('[data-testid="badge"]').childElementCount
+            queryByTestId('badge').childElementCount
         ).toBeTruthy();
     });
 
@@ -40,9 +40,10 @@ describe('CartBadge test', () => {
             cartState
         );
 
-        const { container } = render(application);
+        const { queryByTestId } = render(application);
+        
         expect(
-            !!container.querySelector('[data-testid="badge"]').childElementCount
+            queryByTestId('badge').childElementCount
         ).toBeFalsy();
     });
 });

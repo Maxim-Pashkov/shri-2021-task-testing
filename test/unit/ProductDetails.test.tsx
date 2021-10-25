@@ -99,4 +99,30 @@ describe('ProductDetails test', () => {
 
         expect(cart[product.id]?.count).toBe(2);
     });
+
+    it('cart badge is not exists by default', () => {
+        const { application } = getApplication(
+            () => <ProductDetails product={product} />,
+            {}
+        );
+
+        const { container } = render(application);
+
+        expect(container.querySelector('.text-success')).toBeFalsy();
+    });
+
+    it('cart badge is exists when item in cart', () => {
+        const cartState = {
+            [product.id]: product,
+        };
+
+        const { application } = getApplication(
+            () => <ProductDetails product={product} />,
+            cartState
+        );
+
+        const { container } = render(application);
+
+        expect(container.querySelector('.text-success')).toBeTruthy();
+    });
 });

@@ -70,7 +70,7 @@ describe('Form test', () => {
         expect(isSubmitted).toBeFalsy();
     });
 
-    it('prevent submit with wrong Name', () => {
+    it('prevent submit with wrong Phone', () => {
         let isSubmitted = false;
         const onSubmit = () => (isSubmitted = true);
 
