@@ -46,63 +46,6 @@ describe('Application test', () => {
         expect(container.querySelector('a[href="/cart"]')).toBeTruthy();
     });
 
-    it('Navbar is not collapsed by default', () => {
-        const { application } = getApplication(() => <Application />, {});
-
-        const { container } = render(application);
-
-        expect(
-            container.querySelector('.Application-Toggler').classList.toString()
-        ).not.toContain('collapse navbar-collapse');
-    });
-
-    it('Navbar is collapsed after click on toggler', () => {
-        const { application } = getApplication(() => <Application />, {});
-
-        const { container } = render(application);
-
-        const toggler = container.querySelector('.Application-Toggler');
-
-        userEvent.click(toggler);
-
-        expect(
-            container.querySelector('.Application-Menu').classList.toString()
-        ).toContain('navbar-collapse');
-    });
-
-    it('Navbar is not collapsed after second click by toggler', () => {
-        const { application } = getApplication(() => <Application />, {});
-
-        const { container } = render(application);
-
-        const toggler = container.querySelector('.Application-Toggler');
-
-        userEvent.click(toggler);
-        userEvent.click(toggler);
-
-        expect(
-            container.querySelector('.Application-Menu').classList.toString()
-        ).toContain('collapse navbar-collapse');
-    });
-
-    it('Navbar is collapsed after click by link', () => {
-        const { application } = getApplication(() => <Application />, {});
-
-        const { container } = render(application);
-
-        const toggler = container.querySelector('.Application-Toggler');
-
-        userEvent.click(toggler);
-
-        const link = container.querySelector('a[href="/catalog"]');
-
-        userEvent.click(link);
-
-        expect(
-            container.querySelector('.Application-Menu').classList.toString()
-        ).toContain('collapse navbar-collapse');
-    });
-
     it('Home page is visible by default', () => {
         const { application } = getApplication(() => <Application />, {});
 
