@@ -13,7 +13,7 @@ describe('Catalog test', () => {
 
         const { queryByText } = render(application);
 
-        expect(queryByText(/loading/i)).toBeTruthy();
+        expect(queryByText('LOADING')).toBeTruthy();
     });
 
     it('Catalog page is visible', async () => {
@@ -27,7 +27,7 @@ describe('Catalog test', () => {
 
         await new Promise((resolve) => store.subscribe(() => resolve(true)));
 
-        expect(queryByText(/loading/i)).toBeFalsy();
+        expect(queryByText('LOADING')).toBeFalsy();
     });
 
     it('Product are displayed in Catalog', async () => {
