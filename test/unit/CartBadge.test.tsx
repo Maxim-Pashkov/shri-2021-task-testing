@@ -1,4 +1,4 @@
-import { it, expect } from '@jest/globals';
+import { it, expect, describe } from '@jest/globals';
 import { render } from '@testing-library/react';
 import { getApplication } from './getApplication';
 import { CartBadge } from '../../src/client/components/CartBadge';
@@ -11,35 +11,37 @@ const cartState = {
     },
 };
 
-it('if an item is in the cart, a badge will be displayed', () => {
-    const { application } = getApplication(
-        () => (
-            <div data-testid="badge">
-                <CartBadge id={5} />
-            </div>
-        ),
-        cartState
-    );
+describe('CartBadge test', () => {
+    it('if an item is in the cart, a badge will be displayed', () => {
+        const { application } = getApplication(
+            () => (
+                <div data-testid="badge">
+                    <CartBadge id={5} />
+                </div>
+            ),
+            cartState
+        );
 
-    const { container } = render(application);
+        const { container } = render(application);
 
-    expect(
-        !!container.querySelector('[data-testid="badge"]').childElementCount
-    ).toBeTruthy();
-});
+        expect(
+            !!container.querySelector('[data-testid="badge"]').childElementCount
+        ).toBeTruthy();
+    });
 
-it("if an item is't in the cart, a badge will't be displayed", () => {
-    const { application } = getApplication(
-        () => (
-            <div data-testid="badge">
-                <CartBadge id={6} />
-            </div>
-        ),
-        cartState
-    );
+    it("if an item is't in the cart, a badge will't be displayed", () => {
+        const { application } = getApplication(
+            () => (
+                <div data-testid="badge">
+                    <CartBadge id={6} />
+                </div>
+            ),
+            cartState
+        );
 
-    const { container } = render(application);
-    expect(
-        !!container.querySelector('[data-testid="badge"]').childElementCount
-    ).toBeFalsy();
+        const { container } = render(application);
+        expect(
+            !!container.querySelector('[data-testid="badge"]').childElementCount
+        ).toBeFalsy();
+    });
 });

@@ -1,4 +1,4 @@
-import { it, expect } from '@jest/globals';
+import { it, expect, describe } from '@jest/globals';
 import { CartApi, LOCAL_STORAGE_CART_KEY } from '../../src/client/api';
 
 const cartData = {
@@ -9,18 +9,20 @@ const cartData = {
     },
 };
 
-it('save cart data in local storage', () => {
-    new CartApi().setState(cartData);
+describe('CartApi test', () => {
+    it('save cart data in local storage', () => {
+        new CartApi().setState(cartData);
 
-    expect(localStorage.getItem(LOCAL_STORAGE_CART_KEY)).toEqual(
-        JSON.stringify(cartData)
-    );
-});
+        expect(localStorage.getItem(LOCAL_STORAGE_CART_KEY)).toEqual(
+            JSON.stringify(cartData)
+        );
+    });
 
-it('read cart data from local storage', () => {
-    localStorage.setItem(LOCAL_STORAGE_CART_KEY, JSON.stringify(cartData));
+    it('read cart data from local storage', () => {
+        localStorage.setItem(LOCAL_STORAGE_CART_KEY, JSON.stringify(cartData));
 
-    const state = new CartApi().getState();
+        const state = new CartApi().getState();
 
-    expect(state).toEqual(cartData);
+        expect(state).toEqual(cartData);
+    });
 });
