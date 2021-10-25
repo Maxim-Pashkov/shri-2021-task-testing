@@ -3,3 +3,6 @@ dist
 NOTES.md
 Dockerfile
 .dockerignore
+
+/hermione/
+/hermione-html-report/
