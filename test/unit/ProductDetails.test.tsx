@@ -81,22 +81,7 @@ describe('ProductDetails test', () => {
 
         expect(queryByRole('button', { name: /add to cart/i })).toBeTruthy();
     });
-
-    it('adding to cart', () => {
-        const { application, store } = getApplication(
-            () => <ProductDetails product={product} />,
-            {}
-        );
-
-        const { queryByRole } = render(application);
-
-        userEvent.click(queryByRole('button', { name: /add to cart/i }));
-
-        const { cart } = store.getState();
-
-        expect(cart[product.id]?.count).toBe(1);
-    });
-
+    
     it('adding multiple to cart', () => {
         const { application, store } = getApplication(
             () => <ProductDetails product={product} />,
