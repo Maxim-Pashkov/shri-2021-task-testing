@@ -13,7 +13,7 @@ describe('Product test', () => {
 
         const { queryByText } = render(application);
 
-        expect(queryByText(/loading/i)).toBeTruthy();
+        expect(queryByText('LOADING')).toBeTruthy();
     });
 
     it('Product page is visible', async () => {
@@ -27,6 +27,6 @@ describe('Product test', () => {
 
         await new Promise((resolve) => store.subscribe(() => resolve(true)));
 
-        expect(queryByText(/loading/i)).toBeFalsy();
+        expect(queryByText('LOADING')).toBeFalsy();
     });
 });
