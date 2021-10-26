@@ -51,12 +51,14 @@ describe('catalog test', function() {
 
             await this.browser.assertView('one item in cart', '.Product', {
                 compositeImage: true,
+                screenshotDelay: 200,
             });
 
             await addToCart(this.browser);
 
             await this.browser.assertView('two items in cart', '.Product', {
                 compositeImage: true,
+                screenshotDelay: 200,
             });
         } finally {
             await this.browser.execute('localStorage.clear()');
@@ -71,12 +73,5 @@ describe('catalog test', function() {
         await browser.execute((selector) => {
             document.querySelector(selector).blur();
         }, '.ProductDetails-AddToCart');
-        await button.waitUntil(async function() {
-            return (await this.isFocused()) === false;
-        }, {
-            timeout: 1000,
-            timeoutMsg: 'button still focused',
-        });
-        await new Promise(resolve => setTimeout(resolve, 200));
     }
 });
