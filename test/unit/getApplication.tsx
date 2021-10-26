@@ -5,7 +5,7 @@ import { initStore } from '../../src/client/store';
 import { ExampleApiStub } from './ExampleApiStub';
 import { CartApiStub } from './CartAbiStub';
 import { CartState } from '../../src/common/types';
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
 export function getApplication(
     render: () => ReactElement,
