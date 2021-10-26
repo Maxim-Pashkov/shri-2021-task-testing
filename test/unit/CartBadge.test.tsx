@@ -1,5 +1,4 @@
 import { it, expect, describe } from '@jest/globals';
-import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { getApplication } from './getApplication';
 import { CartBadge } from '../../src/client/components/CartBadge';
