@@ -1,6 +1,8 @@
 const { productMock, checkoutMock } = require("./apiMock.js");
 
 describe('cart test', function() {
+    it('empty test', () => {});
+    
     it('cart processing', async function() {
         await productMock(0, this.browser);
         await checkoutMock(this.browser);
