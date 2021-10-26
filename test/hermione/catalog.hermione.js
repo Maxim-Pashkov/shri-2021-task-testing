@@ -71,6 +71,12 @@ describe('catalog test', function() {
         await browser.execute((selector) => {
             document.querySelector(selector).blur();
         }, '.ProductDetails-AddToCart');
+        await button.waitUntil(async function() {
+            return (await this.isFocused()) === false;
+        }, {
+            timeout: 1000,
+            timeoutMsg: 'button still focused',
+        });
         await new Promise(resolve => setTimeout(resolve, 200));
     }
 });
