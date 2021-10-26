@@ -1,26 +1,33 @@
+const { productMock } = require("./apiMock");
+
 describe('cart test', function() {
     it('cart processing', async function() {
-        await this.browser.url('/hw/store/catalog');
-
-        const link = await this.browser.$('.card-link');
-        await link.waitForExist();
-        await link.click();
+        await productMock(0, this.browser);
+        await this.browser.url('/hw/store/catalog/0');
 
         const button = await this.browser.$('.Product button');
-        await button.waitForExist();
+        await button.waitForClickable();
+        await button.click();
         await button.click();
 
         try {
             await this.browser.url('/hw/store/cart');
 
-            const cartTable = await this.browser.$('.Cart-Table');
-            await cartTable.waitForExist();
+            await this.browser.assertView('cart table', '.Cart-Table', {
+                compositeImage: true,
+            });
+
+            await this.browser.assertView('form', '.Form', {
+                compositeImage: true,
+            });
 
             const checkoutButton = await this.browser.$('.Form-Submit');
             await checkoutButton.click();
 
-            const feedback = await this.browser.$('.invalid-feedback');
-            await feedback.waitForDisplayed();
+            await this.browser.assertView('form invalid', '.Form', {
+                compositeImage: true,
+                screenshotDelay: 200,
+            });
 
             const nameInput = await this.browser.$('#f-name')
             await nameInput.setValue('test name');
@@ -32,9 +39,13 @@ describe('cart test', function() {
             await addressInput.setValue('test address');
 
             await checkoutButton.click();
+            
+            const successMessage = await this.browser.$('.Cart-SuccessMessage');
+            await successMessage.waitForExist();
 
-            const alertSuccess = await this.browser.$('.alert-success');
-            await alertSuccess.waitForDisplayed();
+            await this.browser.assertView('success message', '.Cart-SuccessMessage', {
+                compositeImage: true,                
+            });
         } finally {
             await this.browser.execute('localStorage.clear()');
         }      
