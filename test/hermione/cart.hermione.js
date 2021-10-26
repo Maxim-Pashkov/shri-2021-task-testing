@@ -1,4 +1,4 @@
-const { productMock, checkoutMock } = require("./apiMock");
+const { productMock, checkoutMock } = require("./apiMock.js");
 
 describe('cart test', function() {
     it('cart processing', async function() {

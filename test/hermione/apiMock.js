@@ -1,4 +1,4 @@
-const { products, product } = require("../data");
+const { products, product } = require("../data.js");
 
 async function productsMock(browser) {
     const dataMock = await browser.mock('**' + '/api/products', {
