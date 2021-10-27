@@ -7,7 +7,6 @@ describe('ExampleStore test', () => {
         const products = store.getAllProducts();
 
         expect(Array.isArray(products)).toBeTruthy();
-        expect(products.length).toBeTruthy();
         expect(products.every(product => 'id' in product && 'name' in product && 'price' in product)).toBeTruthy();
         expect(products.map(({id}) => id).length).toBe([...new Set(products.map(({id}) => id))].length);
     });
