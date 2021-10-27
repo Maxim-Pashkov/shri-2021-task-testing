@@ -1,8 +1,14 @@
-const { productsMock, productMock } = require("./apiMock.js");
+const { products, product } = require("../data");
 
 describe('catalog test', function() {
     it('check data on page', async function() {
-        await productsMock(this.browser);
+        const dataMock = await this.browser.mock('**' + '/api/products', {
+            method: 'get'
+        });
+
+        dataMock.respond(products(), {
+            fetchResponse: false,
+        });
 
         await this.browser.url('/hw/store/catalog');
         await this.browser.assertView('catalog', '.Catalog', {
@@ -11,7 +17,13 @@ describe('catalog test', function() {
     });
 
     it('check data on page item', async function() {
-        await productMock(0, this.browser);
+        const dataMock = await this.browser.mock('**' + '/api/products/0', {
+            method: 'get'
+        });
+
+        dataMock.respond(product(0), {
+            fetchResponse: false,
+        });
 
         await this.browser.url('/hw/store/catalog/0');
         await this.browser.assertView('product', '.Product', {
@@ -20,20 +32,34 @@ describe('catalog test', function() {
     });
 
     it('check text success on page', async function() {
-        const products = await productsMock(this.browser);
+        const dataMock = await this.browser.mock('**' + '/api/products/', {
+            method: 'get'
+        });
 
-        const product = products[0];
+        const productsItems = products();
 
-        await productMock(product.id, this.browser);
+        dataMock.respond(productsItems, {
+            fetchResponse: false,
+        });
 
-        await this.browser.url('/hw/store/catalog/' + product.id);
+        const productItem = productsItems[0];
+
+        const dataItemMock = await this.browser.mock('**' + '/api/products/' + productItem.id, {
+            method: 'get',
+        });
+
+        dataItemMock.respond(product(productItem.id), {
+            fetchResponse: false,
+        });
+
+        await this.browser.url('/hw/store/catalog/' + productItem.id);
 
         try {
             await addToCart(this.browser);    
             
             await this.browser.url('/hw/store/catalog/');
 
-            await this.browser.assertView('item in cart', `.ProductItem[data-testid="${product.id}"]`, {
+            await this.browser.assertView('item in cart', `.ProductItem[data-testid="${productItem.id}"]`, {
                 compositeImage: true,
             });
         } finally {
@@ -42,7 +68,13 @@ describe('catalog test', function() {
     });
 
     it('check text success on page item', async function() {
-        await productMock(0, this.browser);
+        const dataMock = await this.browser.mock('**' + '/api/products/0', {
+            method: 'get'
+        });
+
+        dataMock.respond(product(0), {
+            fetchResponse: false,
+        });
 
         await this.browser.url('/hw/store/catalog/0');
 
@@ -71,6 +103,6 @@ describe('catalog test', function() {
         await browser.execute((selector) => {
             document.querySelector(selector).blur();
         }, '.ProductDetails-AddToCart');
-        await new Promise(resolve => setTimeout(resolve, 200));
+        await new Promise(resolve => setTimeout(resolve, 100));
     }
 });
