@@ -1,35 +1,28 @@
-const { productMock } = require("./apiMock");
-
 describe('cart test', function() {
     it('empty test', () => {});
     
     it('cart processing', async function() {
-        await productMock(0, this.browser);
-        await this.browser.url('/hw/store/catalog/0');
+        await this.browser.url('/hw/store/catalog');
+
+        const link = await this.browser.$('.card-link');
+        await link.waitForExist();
+        await link.click();
 
         const button = await this.browser.$('.Product button');
-        await button.waitForClickable();
-        await button.click();
+        await button.waitForExist();
         await button.click();
 
         try {
             await this.browser.url('/hw/store/cart');
 
-            await this.browser.assertView('cart table', '.Cart-Table', {
-                compositeImage: true,
-            });
-
-            await this.browser.assertView('form', '.Form', {
-                compositeImage: true,
-            });
+            const cartTable = await this.browser.$('.Cart-Table');
+            await cartTable.waitForExist();
 
             const checkoutButton = await this.browser.$('.Form-Submit');
             await checkoutButton.click();
 
-            await this.browser.assertView('form invalid', '.Form', {
-                compositeImage: true,
-                screenshotDelay: 200,
-            });
+            const feedback = await this.browser.$('.invalid-feedback');
+            await feedback.waitForDisplayed();
 
             const nameInput = await this.browser.$('#f-name')
             await nameInput.setValue('test name');
@@ -41,13 +34,9 @@ describe('cart test', function() {
             await addressInput.setValue('test address');
 
             await checkoutButton.click();
-            
-            const successMessage = await this.browser.$('.Cart-SuccessMessage');
-            await successMessage.waitForExist();
 
-            await this.browser.assertView('success message', '.Cart-SuccessMessage', {
-                compositeImage: true,                
-            });
+            const alertSuccess = await this.browser.$('.alert-success');
+            await alertSuccess.waitForDisplayed();
         } finally {
             await this.browser.execute('localStorage.clear()');
         }      
