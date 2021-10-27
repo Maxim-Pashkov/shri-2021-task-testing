@@ -1,6 +1,4 @@
-describe('cart test', function() {
-    it('empty test', () => {});
-    
+describe('cart test', function() {  
     it('cart processing', async function() {
         await this.browser.url('/hw/store/catalog');
 
