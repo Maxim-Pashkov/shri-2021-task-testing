@@ -1,4 +1,4 @@
-function products() {
+exports.products = function products() {
     return  [{
         id: 2,
         name: 'test name 2',
@@ -16,7 +16,7 @@ function products() {
     }];
 }
 
-function product(id) {
+exports.product = function product(id) {
     return {
         id,
         name: 'test name',
@@ -26,5 +26,3 @@ function product(id) {
         color: 'test color',
     }
 }
-
-module.exports = {product, products};
