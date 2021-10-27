@@ -19,9 +19,11 @@ describe('pages url test', function() {
 
     async function delivery(browser) {
         await browser.url('/hw/store/delivery');
+        const content = await browser.$('.Delivery');
+        await content.waitForExist();
+        await content.scrollIntoView();
         await browser.assertView('plain', '.Delivery', {
             compositeImage: true,
-            screenshotDelay: 200,
         });       
     }
 
@@ -35,9 +37,11 @@ describe('pages url test', function() {
 
     async function contacts(browser) {
         await browser.url('/hw/store/contacts');
+        const content = await browser.$('.Contacts');
+        await content.waitForExist();
+        await content.scrollIntoView();
         await browser.assertView('plain', '.Contacts', {
             compositeImage: true,
-            screenshotDelay: 200,
         });        
     }
 
@@ -51,9 +55,11 @@ describe('pages url test', function() {
 
     async function cart(browser) {
         await browser.url('/hw/store/cart');
+        const content = await browser.$('.Cart');
+        await content.waitForExist();
+        await content.scrollIntoView();
         await browser.assertView('plain', '.Cart', {
             compositeImage: true,
-            screenshotDelay: 200,
         });        
     }
 
