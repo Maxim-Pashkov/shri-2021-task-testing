@@ -74,7 +74,7 @@ CURL_DATA_CREATE="{\
     \"summary\":\"Release $LATEST_TAG (Maxim Pashkov)\", \
     \"queue\": \"TMP\", \
     \"unique\": \"89mksim91-$LATEST_TAG\", \
-    \"description\": \"$CURL_DATA_CREATE_DESCRIPTION\" \ 
+    \"description\": \"$CURL_DATA_CREATE_DESCRIPTION\" \
 }"
 
 RESPONSE_CREATE=$(curl \
