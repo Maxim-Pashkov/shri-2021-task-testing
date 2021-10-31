@@ -2,7 +2,7 @@
 
 GIT_VERSION=$(git --version)
 
-if [ $? = 0]
+if [ $? = 0 ]
 then echo $GIT_VERSION
 else 
     echo "Git не установлен"
