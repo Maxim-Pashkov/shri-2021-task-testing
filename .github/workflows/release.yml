@@ -39,4 +39,4 @@ jobs:
         YANDEX_ORG_ID: ${{ secrets.YANDEX_ORG_ID }}    
         GITHUB_SERVER_URL: ${{ github.GITHUB_SERVER_URL }}
         GITHUB_REPOSITORY: ${{ github.GITHUB_REPOSITORY }}
-        GITHUB_JOB: ${{ github.GITHUB_JOB }}
+        GITHUB_ACTION: ${{ github.GITHUB_ACTION }}
