@@ -1,5 +1,14 @@
 #!/bin/bash
 
+GIT_VERSION=$(git --version)
+
+if [ $? = 0]
+then echo $GIT_VERSION
+else 
+    echo "Git не установлен"
+    exit 1
+fi
+
 LATESTS_TAGS_LIST=$(git tag --sort=taggerdate | grep -E "^v[0-9]" | tail -2)
 
 export LATEST_TAG=$(echo $LATESTS_TAGS_LIST | awk '{print $2}')
