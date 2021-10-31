@@ -62,6 +62,7 @@ CURL_DATA_CREATE_DESCRIPTION="\
 Release version: $LATEST_TAG\n\
 Author: $TAG_AUTHOR_NAME\n\
 Date: $TAG_DATE\n\
+Builded on: $GITHUB_ACTIONS_URL\n\
 Changelog:\n\
 $CHANGELOG_N"
 
@@ -73,8 +74,7 @@ CURL_DATA_CREATE="{\
     \"summary\":\"Release $LATEST_TAG (Maxim Pashkov)\", \
     \"queue\": \"TMP\", \
     \"unique\": \"89mksim91-$LATEST_TAG\", \
-    \"description\": \"$CURL_DATA_CREATE_DESCRIPTION\", \
-    \"Builded on\": \"$GITHUB_ACTIONS_URL\" \
+    \"description\": \"$CURL_DATA_CREATE_DESCRIPTION\" \ 
 }"
 
 RESPONSE_CREATE=$(curl \
