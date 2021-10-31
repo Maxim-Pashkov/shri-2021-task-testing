@@ -129,7 +129,7 @@ fi
 
 echo "Начинаем сборку релизного артефакта"
 
-./release-docker.sh
+sh ./release-docker.sh
 
 if [ $? = 0 ]
 then RELEASE_DOCKER_RESPONSE="Build and publish the artifact was successful"
@@ -151,7 +151,7 @@ $(curl \
 
 echo "Начинаем тестирование"
 
-./release-tests.sh
+sh ./release-tests.sh
 
 if [ $? = 0 ]
 then RELEASE_TESTS_RESPONSE="Tests was successful"
