@@ -81,6 +81,8 @@ RESPONSE_CREATE=$(curl \
    --data "${CURL_DATA_CREATE}" \
    ${CURL_HOST}/v2/issues/)
 
+sleep 2
+
 RESPONSE_FIND=$(curl \
     -sS \
     -X 'POST' \
