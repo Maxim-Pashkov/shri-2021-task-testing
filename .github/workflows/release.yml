@@ -15,8 +15,6 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - uses: actions/checkout@v2
-
     - name: Use Node.js 14.x
       uses: actions/setup-node@v1
       with:
@@ -25,8 +23,9 @@ jobs:
     - name: Install
       run: npm install
 
+    - uses: actions/checkout@v2
+    
     - name: Run
-      uses: actions/checkout@v2
       run: sh ./release.sh
       env: 
         YANDEX_AUTH_TOKEN: ${{ secrets.YANDEX_AUTH_TOKEN }}
