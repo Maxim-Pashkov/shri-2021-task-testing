@@ -22,6 +22,9 @@ jobs:
         ref: 'master'
         fetch-depth: 0
 
+    - name: Checkout to tag
+      run: git checkout ${{ github.ref }}
+
     - name: Use Node.js 14.x
       uses: actions/setup-node@v1
       with:
