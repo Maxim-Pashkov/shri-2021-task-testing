@@ -94,7 +94,7 @@ echo "RECORD_ID_PART: $RECORD_ID_PART"
 RECORD_ID=$(echo "$RECORD_ID_PART" | awk -F : '{print $2}' | awk -F \" '{print $2}')
 echo "RECORD_ID: $RECORD_ID"
 
-if [ "$RESPONSE_CREATE" != "200" ]
+if [ "$RESPONSE_CREATE" != "200" ] && [ "$RESPONSE_CREATE" != "201" ]
 then 
     if [ "$RESPONSE_CREATE" = "409" ]
     then 
