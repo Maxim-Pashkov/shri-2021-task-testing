@@ -89,6 +89,8 @@ RESPONSE_FIND=$(curl \
 
 RECORD_ID_PART=$(echo $RESPONSE_FIND | grep -o '"id":"[0-9a-z]*"' | head -1)
 
+echo "RECORD_ID_PART: $RECORD_ID_PART" 
+
 RECORD_ID=${RECORD_ID_PART/\"id\":/}
 RECORD_ID=${RECORD_ID//\"/}
 
