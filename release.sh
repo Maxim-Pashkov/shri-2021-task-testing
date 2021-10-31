@@ -134,7 +134,7 @@ echo "Начинаем сборку релизного артефакта"
 sh ./release-docker.sh
 
 if [ $? = 0 ]
-then RELEASE_DOCKER_RESPONSE="Build and publish the artifact was successful"
+then RELEASE_DOCKER_RESPONSE="Build and publish the artifact was successful\nhttps://hub.docker.com/r/89mvksim91/shri-2021-task-testing/tags"
 else RELEASE_DOCKER_RESPONSE="Build and publish artifact failed"
 fi
 
