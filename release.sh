@@ -145,7 +145,7 @@ sh ./release-docker.sh
 
 if [ $? = 0 ]
 then RELEASE_DOCKER_RESPONSE="Build and publish the artifact was successful\nhttps://hub.docker.com/r/89mvksim91/shri-2021-task-testing/tags"
-else RELEASE_DOCKER_RESPONSE="Build and publish artifact failed${GITHUB_ACTIONS_URL}"
+else RELEASE_DOCKER_RESPONSE="Build and publish artifact failed\n${GITHUB_ACTIONS_URL}"
 fi
 
 echo "$RELEASE_DOCKER_RESPONSE"
@@ -166,8 +166,8 @@ echo "Начинаем тестирование"
 sh ./release-tests.sh
 
 if [ $? = 0 ]
-then RELEASE_TESTS_RESPONSE="Tests was successful${GITHUB_ACTIONS_URL}"
-else RELEASE_TESTS_RESPONSE="Tests failed${GITHUB_ACTIONS_URL}"
+then RELEASE_TESTS_RESPONSE="Tests was successful\n${GITHUB_ACTIONS_URL}"
+else RELEASE_TESTS_RESPONSE="Tests failed\n${GITHUB_ACTIONS_URL}"
 fi
 
 echo "$RELEASE_TESTS_RESPONSE"
