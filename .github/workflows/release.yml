@@ -36,5 +36,7 @@ jobs:
         sh ./release.sh
       env: 
         YANDEX_AUTH_TOKEN: ${{ secrets.YANDEX_AUTH_TOKEN }}
-        YANDEX_ORG_ID: ${{ secrets.YANDEX_ORG_ID }}      
-        GITHUB_ACTIONS_URL: ${{ github.GITHUB_SERVER_URL }}/${{ github.GITHUB_REPOSITORY }}/actions/run${{ github.GITHUB_RUN_ID }}   
+        YANDEX_ORG_ID: ${{ secrets.YANDEX_ORG_ID }}    
+        GITHUB_SERVER_URL: ${{ github.GITHUB_SERVER_URL }}
+        GITHUB_REPOSITORY: ${{ github.GITHUB_REPOSITORY }}
+        GITHUB_RUN_ID: ${{ github.GITHUB_RUN_ID }}
