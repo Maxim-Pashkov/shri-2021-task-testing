@@ -70,7 +70,7 @@ CURL_DATA_CREATE="{\
     \"queue\": \"TMP\", \
     \"unique\": \"89mksim91-$LATEST_TAG\", \
     \"description\": \"$CURL_DATA_CREATE_DESCRIPTION\", \
-    \"Builded on\": \"$GITHUB_RUN_ID\" \
+    \"Builded on\": \"$GITHUB_ACTIONS_URL\" \
 }"
 
 RESPONSE_CREATE=$(curl \
