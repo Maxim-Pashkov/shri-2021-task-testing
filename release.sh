@@ -9,6 +9,7 @@ else
     exit 1
 fi
 
+git describe
 git log -n 10 --pretty=oneline
 
 LATESTS_TAGS_LIST=$(git tag --sort=taggerdate | grep -E "^v[0-9]" | tail -2)
