@@ -26,6 +26,6 @@ jobs:
       run: |
         npm install
         ./../../release.sh
-      end: 
+      env: 
         YANDEX_AUTH_TOKEN: ${{ secrets.YANDEX_AUTH_TOKEN }}
         YANDEX_ORG_ID: ${{ secrets.YANDEX_ORG_ID }}
