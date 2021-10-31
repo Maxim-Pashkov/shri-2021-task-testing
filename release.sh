@@ -91,8 +91,8 @@ RECORD_ID_PART=$(echo $RESPONSE_FIND | grep -o '"id":"[0-9a-z]*"' | head -1)
 
 echo "RECORD_ID_PART: $RECORD_ID_PART" 
 
-RECORD_ID=${RECORD_ID_PART/\"id\":/}
-RECORD_ID=${RECORD_ID//\"/}
+RECORD_ID=$(echo "$RECORD_ID_PART" | awk -F : '{print $2}' | awk -F \" '{print $2}')
+echo "RECORD_ID: $RECORD_ID"
 
 if [ "$RESPONSE_CREATE" != "200" ]
 then 
