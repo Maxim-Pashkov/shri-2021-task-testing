@@ -15,20 +15,19 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
     - name: Use Node.js 14.x
       uses: actions/setup-node@v1
       with:
         node-version: 14.x
 
-    - name: Install
-      run: npm install
-
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-
-    - name: Run
-      run: sh ./release.sh
+    - name: Build
+      run: | 
+        npm install
+        sh ./release.sh
       env: 
         YANDEX_AUTH_TOKEN: ${{ secrets.YANDEX_AUTH_TOKEN }}
-        YANDEX_ORG_ID: ${{ secrets.YANDEX_ORG_ID }}
+        YANDEX_ORG_ID: ${{ secrets.YANDEX_ORG_ID }}      
