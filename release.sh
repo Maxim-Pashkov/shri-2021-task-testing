@@ -9,6 +9,8 @@ else
     exit 1
 fi
 
+git log -n 10 --pretty=oneline
+
 LATESTS_TAGS_LIST=$(git tag --sort=taggerdate | grep -E "^v[0-9]" | tail -2)
 
 export LATEST_TAG=$(echo $LATESTS_TAGS_LIST | awk '{print $2}')
