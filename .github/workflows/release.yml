@@ -24,7 +24,9 @@ jobs:
       run: npm install
 
     - uses: actions/checkout@v2
-    
+      with:
+        fetch-depth: 0
+
     - name: Run
       run: sh ./release.sh
       env: 
