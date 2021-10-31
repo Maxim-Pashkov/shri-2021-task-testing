@@ -5,7 +5,7 @@ on:
     branches:    
       - 'releases/**'
     tags:        
-      - v1.*
+      - v*
 jobs:
   build:
     runs-on: ubuntu-latest
