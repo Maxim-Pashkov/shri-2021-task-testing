@@ -68,7 +68,7 @@ CURL_HOST='https://api.tracker.yandex.net'
 CURL_DATA_CREATE="{\
     \"summary\":\"Release $LATEST_TAG (Maxim Pashkov)\", \
     \"queue\": \"TMP\", \
-    \"unique\": \"$LATEST_TAG\", \
+    \"unique\": \"89mksim91-$LATEST_TAG\", \
     \"description\": \"$CURL_DATA_CREATE_DESCRIPTION\" \
 }"
 
@@ -87,7 +87,7 @@ RESPONSE_FIND=$(curl \
     -H "$CURL_OAUTH"  \
     -H "$CURL_ORG"  \
     -H 'Content-Type: application/json' \
-    --data "{\"filter\": {\"queue\": \"TMP\", \"unique\": \"$LATEST_TAG\"}}" \
+    --data "{\"filter\": {\"queue\": \"TMP\", \"unique\": \"89mksim91-$LATEST_TAG\"}}" \
     ${CURL_HOST}/v2/issues/_search)
 
 RECORD_ID_PART=$(echo $RESPONSE_FIND | grep -o '"id":"[0-9a-z]*"' | head -1)
