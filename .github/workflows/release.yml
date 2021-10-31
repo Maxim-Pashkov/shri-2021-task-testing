@@ -22,10 +22,12 @@ jobs:
       with:
         node-version: 14.x
 
-    - name: Build
-      run: |
-        npm install
-        sh ./release.sh
+    - name: Install
+      run: npm install
+
+    - name: Run
+      uses: actions/checkout@v2
+      run: sh ./release.sh
       env: 
         YANDEX_AUTH_TOKEN: ${{ secrets.YANDEX_AUTH_TOKEN }}
         YANDEX_ORG_ID: ${{ secrets.YANDEX_ORG_ID }}
