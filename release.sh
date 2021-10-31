@@ -69,7 +69,8 @@ CURL_DATA_CREATE="{\
     \"summary\":\"Release $LATEST_TAG (Maxim Pashkov)\", \
     \"queue\": \"TMP\", \
     \"unique\": \"89mksim91-$LATEST_TAG\", \
-    \"description\": \"$CURL_DATA_CREATE_DESCRIPTION\" \
+    \"description\": \"$CURL_DATA_CREATE_DESCRIPTION\", \
+    \"Builded on\": \"$GITHUB_RUN_ID\" \
 }"
 
 RESPONSE_CREATE=$(curl \
@@ -140,7 +141,7 @@ sh ./release-docker.sh
 
 if [ $? = 0 ]
 then RELEASE_DOCKER_RESPONSE="Build and publish the artifact was successful\nhttps://hub.docker.com/r/89mvksim91/shri-2021-task-testing/tags"
-else RELEASE_DOCKER_RESPONSE="Build and publish artifact failed"
+else RELEASE_DOCKER_RESPONSE="Build and publish artifact failed${GITHUB_ACTIONS_URL}"
 fi
 
 echo "$RELEASE_DOCKER_RESPONSE"
@@ -161,8 +162,8 @@ echo "Начинаем тестирование"
 sh ./release-tests.sh
 
 if [ $? = 0 ]
-then RELEASE_TESTS_RESPONSE="Tests was successful"
-else RELEASE_TESTS_RESPONSE="Tests failed"
+then RELEASE_TESTS_RESPONSE="Tests was successful${GITHUB_ACTIONS_URL}"
+else RELEASE_TESTS_RESPONSE="Tests failed${GITHUB_ACTIONS_URL}"
 fi
 
 echo "$RELEASE_TESTS_RESPONSE"
