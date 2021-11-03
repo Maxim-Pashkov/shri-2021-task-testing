@@ -3,6 +3,7 @@ import { it, expect, describe } from '@jest/globals';
 import { render } from '@testing-library/react';
 import { getApplication } from './getApplication';
 import { Application } from '../../src/client/Application';
+import { Helmet } from 'react-helmet';
 
 describe('Product test', () => {
     it('Product page loading is visible', () => {
@@ -48,6 +49,15 @@ describe('Product test', () => {
 
         await new Promise((resolve) => store.subscribe(() => resolve(true)));
 
-        expect(container.querySelector('.ProductDetails-AddToCart').nextElementSibling).toMatchSnapshot();
+        const helmet = Helmet.peek();
+
+        expect(
+            container.querySelector('.ProductDetails-AddToCart')
+                .nextElementSibling
+        ).toMatchSnapshot();
+        
+        expect(helmet.title).toMatchInlineSnapshot(
+            `"test name — Example store"`
+        );
     });
 });

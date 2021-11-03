@@ -3,6 +3,7 @@ import { it, expect, describe } from '@jest/globals';
 import { render } from '@testing-library/react';
 import { getApplication } from './getApplication';
 import { Application } from '../../src/client/Application';
+import { Helmet } from 'react-helmet';
 
 describe('Catalog test', () => {
     it('Catalog page loading is visible', () => {
@@ -34,6 +35,9 @@ describe('Catalog test', () => {
 
         await new Promise((resolve) => store.subscribe(() => resolve(true)));
 
+        const helmet = Helmet.peek();
+
         expect(container.querySelector('.Catalog')).toMatchSnapshot();
+        expect(helmet.title).toMatchInlineSnapshot(`"Catalog — Example store"`);
     });
 });

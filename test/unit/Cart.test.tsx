@@ -5,6 +5,7 @@ import userEvent from '@testing-library/user-event';
 import { getApplication } from './getApplication';
 import { Cart } from '../../src/client/pages/Cart';
 import { checkoutComplete } from '../../src/client/store';
+import { Helmet } from 'react-helmet';
 
 const cartState = {
     5: {
@@ -32,8 +33,10 @@ describe('Cart test', () => {
         const { application } = getApplication(() => <Cart />, cartState);
 
         const { container } = render(application);
+        const helmet = Helmet.peek();
 
         expect(container.firstChild).toMatchSnapshot();
+        expect(helmet.title).toMatchInlineSnapshot(`"Shopping cart"`);
     });
 
     it('after click on clear button Cart must be empty', () => {
