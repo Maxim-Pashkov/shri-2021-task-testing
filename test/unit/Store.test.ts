@@ -40,40 +40,25 @@ describe('Store test', () => {
     });
 
     it('add to cart test', async () => {
-        const {store, api} = getStore({});
-
-        const {data: productInfo} = await api.getProductById(1);
-
-        store.dispatch(addToCart(productInfo));
-
-        expect(store.getState()).toStrictEqual({
-            details: {}, 
-            cart: {
-                [productInfo.id]: {
-                    name: productInfo.name, 
-                    price: productInfo.price, 
-                    count: 1
-                }
-            },
-            latestOrderId: undefined,
+        const {store, api} = getStore({
+            2: {
+                name: 'test',
+                price: 3,
+                count: 2,
+            }
         });
-    });
 
-    it('add exist to cart test', async () => {
-        const {store, api} = getStore({});
+        const {data: productInfo} = await api.getProductById(2);
 
-        const {data: productInfo} = await api.getProductById(1);
-
-        store.dispatch(addToCart(productInfo));
         store.dispatch(addToCart(productInfo));
 
         expect(store.getState()).toStrictEqual({
             details: {}, 
             cart: {
-                [productInfo.id]: {
-                    name: productInfo.name, 
-                    price: productInfo.price, 
-                    count: 2
+                2: {
+                    name: 'test',
+                    price: 3,
+                    count: 3,
                 }
             },
             latestOrderId: undefined,
