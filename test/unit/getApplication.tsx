@@ -12,10 +12,7 @@ export function getApplication(
     cartState: CartState
 ) {
     const history = createMemoryHistory();
-    const store = initStore(
-        new ExampleApiStub('test'),
-        new CartApiStub(cartState)
-    );
+    const {store} = getStore(cartState); 
     const application = (
         <Router history={history}>
             <Provider store={store}>{render()}</Provider>
@@ -23,4 +20,16 @@ export function getApplication(
     );
 
     return { application, store, history };
+}
+
+export function getStore(cartState: CartState) {
+    const api = new ExampleApiStub('test');
+    const cartApi = new CartApiStub(cartState);
+
+    const store = initStore(
+        api,
+        cartApi,
+    );
+
+    return {api, cartApi, store};
 }
