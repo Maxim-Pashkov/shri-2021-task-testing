@@ -71,3 +71,11 @@ exports[`Product test Product page loading is visible 1`] = `
   LOADING
 </div>
 `;
+
+exports[`Product test Product page selected item is visible 1`] = `
+<span
+  class="CartBadge text-success mx-3"
+>
+  Item in cart
+</span>
+`;

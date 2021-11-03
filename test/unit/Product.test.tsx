@@ -30,4 +30,24 @@ describe('Product test', () => {
 
         expect(container.querySelector('.Product')).toMatchSnapshot();
     });
+
+    it('Product page selected item is visible', async () => {
+        const { application, history, store } = getApplication(
+            () => <Application />,
+            {
+                10: {
+                    price: 10,
+                    count: 1,
+                    name: 'test',
+                },
+            }
+        );
+        history.push('/catalog/10');
+
+        const { container } = render(application);
+
+        await new Promise((resolve) => store.subscribe(() => resolve(true)));
+
+        expect(container.querySelector('.ProductDetails-AddToCart').nextElementSibling).toMatchSnapshot();
+    });
 });

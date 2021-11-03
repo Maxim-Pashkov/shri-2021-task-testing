@@ -16,17 +16,6 @@ const product = {
 };
 
 describe('ProductDetails test', () => {
-    it('item is exists', () => {
-        const { application } = getApplication(
-            () => <ProductDetails product={product} />,
-            {}
-        );
-
-        const { container } = render(application);
-
-        expect(container.firstChild).toMatchSnapshot();
-    });
-    
     it('adding multiple to cart', () => {
         const { application, store } = getApplication(
             () => <ProductDetails product={product} />,
@@ -43,20 +32,5 @@ describe('ProductDetails test', () => {
         const { cart } = store.getState();
 
         expect(cart[product.id]?.count).toBe(2);
-    });
-
-    it('selected item is exists', () => {
-        const cartState = {
-            [product.id]: product,
-        };
-
-        const { application } = getApplication(
-            () => <ProductDetails product={product} />,
-            cartState
-        );
-
-        const { container } = render(application);
-
-        expect(container.firstChild).toMatchSnapshot();
     });
 });
