@@ -29,4 +29,20 @@ describe('ExampleStore test', () => {
         const product = store.getProductById(maxId + 1);
         expect(product).toBe(undefined);
     });
+
+    it('create order', () => {
+        const store = new ExampleStore();
+        const order = {
+            form: {
+                name: 'test',
+                phone: 'test',
+                address: 'test',
+            },
+            cart: {},
+        };
+
+        const num = store.createOrder(order);
+        expect(num).toBe(1);
+        expect(store.getLatestOrders()).toStrictEqual([{id: 1, ...order}]);
+    });
 });
