@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductDetails test item is exists 1`] = `
+<div
+  class="ProductDetails row"
+>
+  <div
+    class="col-12 col-sm-5 col-lg-4"
+  >
+    <img
+      class="Image"
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkMAYAADkANVKH3ScAAAAASUVORK5CYII="
+    />
+  </div>
+  <div
+    class="col-12 col-sm-7 col-lg-6"
+  >
+    <h1
+      class="ProductDetails-Name"
+    >
+      test name
+    </h1>
+    <p
+      class="ProductDetails-Description"
+    >
+      test description
+    </p>
+    <p
+      class="ProductDetails-Price fs-3"
+    >
+      $
+      10
+    </p>
+    <p>
+      <button
+        class="ProductDetails-AddToCart btn btn-primary btn-lg"
+      >
+        Add to Cart
+      </button>
+    </p>
+    <dl>
+      <dt>
+        Color
+      </dt>
+      <dd
+        class="ProductDetails-Color text-capitalize"
+      >
+        test color
+      </dd>
+      <dt>
+        Material
+      </dt>
+      <dd
+        class="ProductDetails-Material text-capitalize"
+      >
+        test material
+      </dd>
+    </dl>
+  </div>
+</div>
+`;
+
+exports[`ProductDetails test selected item is exists 1`] = `
+<div
+  class="ProductDetails row"
+>
+  <div
+    class="col-12 col-sm-5 col-lg-4"
+  >
+    <img
+      class="Image"
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkMAYAADkANVKH3ScAAAAASUVORK5CYII="
+    />
+  </div>
+  <div
+    class="col-12 col-sm-7 col-lg-6"
+  >
+    <h1
+      class="ProductDetails-Name"
+    >
+      test name
+    </h1>
+    <p
+      class="ProductDetails-Description"
+    >
+      test description
+    </p>
+    <p
+      class="ProductDetails-Price fs-3"
+    >
+      $
+      10
+    </p>
+    <p>
+      <button
+        class="ProductDetails-AddToCart btn btn-primary btn-lg"
+      >
+        Add to Cart
+      </button>
+      <span
+        class="CartBadge text-success mx-3"
+      >
+        Item in cart
+      </span>
+    </p>
+    <dl>
+      <dt>
+        Color
+      </dt>
+      <dd
+        class="ProductDetails-Color text-capitalize"
+      >
+        test color
+      </dd>
+      <dt>
+        Material
+      </dt>
+      <dd
+        class="ProductDetails-Material text-capitalize"
+      >
+        test material
+      </dd>
+    </dl>
+  </div>
+</div>
+`;

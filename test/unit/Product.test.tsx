@@ -12,9 +12,9 @@ describe('Product test', () => {
         );
         history.push('/catalog/10');
 
-        const { queryByText } = render(application);
+        const { container } = render(application);
 
-        expect(queryByText('LOADING')).toBeTruthy();
+        expect(container.querySelector('.Product')).toMatchSnapshot();
     });
 
     it('Product page is visible', async () => {
@@ -24,10 +24,10 @@ describe('Product test', () => {
         );
         history.push('/catalog/10');
 
-        const { queryByText } = render(application);
+        const { container } = render(application);
 
         await new Promise((resolve) => store.subscribe(() => resolve(true)));
 
-        expect(queryByText('LOADING')).toBeFalsy();
+        expect(container.querySelector('.Product')).toMatchSnapshot();
     });
 });

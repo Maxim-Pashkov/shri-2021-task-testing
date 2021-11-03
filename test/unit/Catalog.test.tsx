@@ -1,6 +1,6 @@
 import React from 'react';
 import { it, expect, describe } from '@jest/globals';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { getApplication } from './getApplication';
 import { Application } from '../../src/client/Application';
 
@@ -12,9 +12,9 @@ describe('Catalog test', () => {
         );
         history.push('/catalog');
 
-        const { queryByText } = render(application);
+        const { container } = render(application);
 
-        expect(queryByText('LOADING')).toBeTruthy();
+        expect(container.querySelector('.Catalog')).toMatchSnapshot();
     });
 
     it('Catalog page is visible', async () => {
@@ -24,29 +24,10 @@ describe('Catalog test', () => {
         );
         history.push('/catalog');
 
-        const { queryByText } = render(application);
+        const { container } = render(application);
 
         await new Promise((resolve) => store.subscribe(() => resolve(true)));
 
-        expect(queryByText('LOADING')).toBeFalsy();
-    });
-
-    it('Product are displayed in Catalog', async () => {
-        const { application, history, store } = getApplication(
-            () => <Application />,
-            {}
-        );
-        history.push('/catalog');
-
-        const { queryAllByTestId } = render(application);
-
-        await new Promise((resolve) => store.subscribe(() => resolve(true)));
-
-        const ids = store.getState().products.map((product) => product.id);
-        const elements = ids.map(
-            (id) => +queryAllByTestId(id)[0]?.getAttribute('data-testid')
-        );
-
-        expect(ids).toEqual(expect.arrayContaining(elements));
+        expect(container.querySelector('.Catalog')).toMatchSnapshot();
     });
 });

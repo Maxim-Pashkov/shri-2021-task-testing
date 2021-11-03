@@ -8,10 +8,8 @@ describe('Image test', () => {
     it('Image outputed', () => {
         const application = <Image />;
 
-        const { queryByRole } = render(application);
+        const { container } = render(application);
 
-        expect(
-            queryByRole('img')?.hasAttribute('src')
-        ).toBeTruthy();
+        expect(container.firstChild).toMatchSnapshot();
     });
 });

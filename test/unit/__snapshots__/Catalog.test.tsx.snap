@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Catalog test Catalog page is visible 1`] = `
+<div
+  class="Catalog"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col"
+    >
+      <h1>
+        Catalog
+      </h1>
+    </div>
+  </div>
+  <div
+    class="row"
+  >
+    <div
+      class="col-12 col-sm-6 col-md-4 col-lg-3"
+      data-testid="2"
+    >
+      <div
+        class="ProductItem card w-100 mb-4"
+        data-testid="2"
+      >
+        <img
+          class="Image card-img-top"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkMAYAADkANVKH3ScAAAAASUVORK5CYII="
+        />
+        <div
+          class="card-body"
+        >
+          <h5
+            class="ProductItem-Name card-title"
+          >
+            test name 2
+          </h5>
+          <p
+            class="ProductItem-Price card-text"
+          >
+            $
+            10
+          </p>
+          <a
+            class="ProductItem-DetailsLink card-link"
+            href="/catalog/2"
+          >
+            Details
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="col-12 col-sm-6 col-md-4 col-lg-3"
+      data-testid="3"
+    >
+      <div
+        class="ProductItem card w-100 mb-4"
+        data-testid="3"
+      >
+        <img
+          class="Image card-img-top"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkMAYAADkANVKH3ScAAAAASUVORK5CYII="
+        />
+        <div
+          class="card-body"
+        >
+          <h5
+            class="ProductItem-Name card-title"
+          >
+            test name 3
+          </h5>
+          <p
+            class="ProductItem-Price card-text"
+          >
+            $
+            11
+          </p>
+          <a
+            class="ProductItem-DetailsLink card-link"
+            href="/catalog/3"
+          >
+            Details
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="col-12 col-sm-6 col-md-4 col-lg-3"
+      data-testid="4"
+    >
+      <div
+        class="ProductItem card w-100 mb-4"
+        data-testid="4"
+      >
+        <img
+          class="Image card-img-top"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkMAYAADkANVKH3ScAAAAASUVORK5CYII="
+        />
+        <div
+          class="card-body"
+        >
+          <h5
+            class="ProductItem-Name card-title"
+          >
+            test name 4
+          </h5>
+          <p
+            class="ProductItem-Price card-text"
+          >
+            $
+            12
+          </p>
+          <a
+            class="ProductItem-DetailsLink card-link"
+            href="/catalog/4"
+          >
+            Details
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Catalog test Catalog page loading is visible 1`] = `
+<div
+  class="Catalog"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col"
+    >
+      <h1>
+        Catalog
+      </h1>
+    </div>
+  </div>
+  <div
+    class="row"
+  >
+    LOADING
+  </div>
+</div>
+`;

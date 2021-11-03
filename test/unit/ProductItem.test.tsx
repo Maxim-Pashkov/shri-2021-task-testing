@@ -18,56 +18,12 @@ describe('ProductItem test', () => {
             {}
         );
 
-        const { queryByTestId } = render(application);
-
-        expect(queryByTestId(product.id)).toBeTruthy();
-    });
-
-    it('the name is exists', () => {
-        const { application } = getApplication(
-            () => <ProductItem product={product} />,
-            {}
-        );
-
-        const { getByText } = render(application);
-
-        expect(getByText(product.name)).toBeTruthy();
-    });
-
-    it('the price is exists', () => {
-        const { application } = getApplication(
-            () => <ProductItem product={product} />,
-            {}
-        );
-
-        const { getByText } = render(application);
-
-        expect(getByText(new RegExp(product.price.toString()))).toBeTruthy();
-    });
-
-    it('the link to details is exists', () => {
-        const { application } = getApplication(
-            () => <ProductItem product={product} />,
-            {}
-        );
-
-        const { queryByRole } = render(application);
-
-        expect(queryByRole('link', { name: /details/i })).toBeTruthy();
-    });
-
-    it('cart badge is not exists by default', () => {
-        const { application } = getApplication(
-            () => <ProductItem product={product} />,
-            {}
-        );
-
         const { container } = render(application);
 
-        expect(container.querySelector('.text-success')).toBeFalsy();
+        expect(container.firstChild).toMatchSnapshot();
     });
 
-    it('cart badge is exists when item in cart', () => {
+    it('selected item is exists', () => {
         const cartState = {
             [product.id]: product,
         };
@@ -79,6 +35,6 @@ describe('ProductItem test', () => {
 
         const { container } = render(application);
 
-        expect(container.querySelector('.text-success')).toBeTruthy();
+        expect(container.firstChild).toMatchSnapshot();
     });
 });

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CartBadge test if an item is in the cart, a badge will be displayed 1`] = `
+<span
+  class="CartBadge text-success mx-3"
+>
+  Item in cart
+</span>
+`;
+
+exports[`CartBadge test if an item is't in the cart, a badge will't be displayed 1`] = `null`;

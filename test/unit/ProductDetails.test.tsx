@@ -16,70 +16,15 @@ const product = {
 };
 
 describe('ProductDetails test', () => {
-    it('the name is exists', () => {
+    it('item is exists', () => {
         const { application } = getApplication(
             () => <ProductDetails product={product} />,
             {}
         );
 
-        const { getByText } = render(application);
+        const { container } = render(application);
 
-        expect(getByText(product.name)).toBeTruthy();
-    });
-
-    it('the description is exists', () => {
-        const { application } = getApplication(
-            () => <ProductDetails product={product} />,
-            {}
-        );
-
-        const { getByText } = render(application);
-
-        expect(getByText(product.description)).toBeTruthy();
-    });
-
-    it('the price is exists', () => {
-        const { application } = getApplication(
-            () => <ProductDetails product={product} />,
-            {}
-        );
-
-        const { getByText } = render(application);
-
-        expect(getByText(new RegExp(product.price.toString()))).toBeTruthy();
-    });
-
-    it('the color is exists', () => {
-        const { application } = getApplication(
-            () => <ProductDetails product={product} />,
-            {}
-        );
-
-        const { getByText } = render(application);
-
-        expect(getByText(product.color)).toBeTruthy();
-    });
-
-    it('the material is exists', () => {
-        const { application } = getApplication(
-            () => <ProductDetails product={product} />,
-            {}
-        );
-
-        const { getByText } = render(application);
-
-        expect(getByText(product.material)).toBeTruthy();
-    });
-
-    it('button add to cart is exists', () => {
-        const { application } = getApplication(
-            () => <ProductDetails product={product} />,
-            {}
-        );
-
-        const { queryByRole } = render(application);
-
-        expect(queryByRole('button', { name: /add to cart/i })).toBeTruthy();
+        expect(container.firstChild).toMatchSnapshot();
     });
     
     it('adding multiple to cart', () => {
@@ -100,18 +45,7 @@ describe('ProductDetails test', () => {
         expect(cart[product.id]?.count).toBe(2);
     });
 
-    it('cart badge is not exists by default', () => {
-        const { application } = getApplication(
-            () => <ProductDetails product={product} />,
-            {}
-        );
-
-        const { container } = render(application);
-
-        expect(container.querySelector('.text-success')).toBeFalsy();
-    });
-
-    it('cart badge is exists when item in cart', () => {
+    it('selected item is exists', () => {
         const cartState = {
             [product.id]: product,
         };
@@ -123,6 +57,6 @@ describe('ProductDetails test', () => {
 
         const { container } = render(application);
 
-        expect(container.querySelector('.text-success')).toBeTruthy();
+        expect(container.firstChild).toMatchSnapshot();
     });
 });

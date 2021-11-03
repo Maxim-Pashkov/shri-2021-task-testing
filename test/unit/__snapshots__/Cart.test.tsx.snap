@@ -1,0 +1,334 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cart test Success message must be output when last ordered id is not empty 1`] = `
+<div
+  class="Cart"
+>
+  <div
+    class="row mb-4"
+  >
+    <div
+      class="col"
+    >
+      <h1>
+        Shopping cart
+      </h1>
+      <div
+        class="row my-2"
+      >
+        <div
+          class="col-12 col-sm-8 col-md-6"
+        >
+          <div
+            class="Cart-SuccessMessage alert alert-success"
+          >
+            <h4
+              class="alert-heading"
+            >
+              Well done!
+            </h4>
+            <p>
+              Order #
+              <strong
+                class="Cart-Number"
+              >
+                1
+              </strong>
+               has been successfully completed.
+            </p>
+            <hr />
+            <p
+              class="mb-0"
+            >
+              Please wait for confirmation of delivery.
+            </p>
+          </div>
+        </div>
+      </div>
+      Cart is empty. Please select products in the 
+      <a
+        href="/catalog"
+      >
+        catalog
+      </a>
+      .
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Cart test after click on clear button Cart must be empty 1`] = `
+<div
+  class="Cart"
+>
+  <div
+    class="row mb-4"
+  >
+    <div
+      class="col"
+    >
+      <h1>
+        Shopping cart
+      </h1>
+      Cart is empty. Please select products in the 
+      <a
+        href="/catalog"
+      >
+        catalog
+      </a>
+      .
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Cart test link to Catalog displayed when Cart is empty 1`] = `
+<div
+  class="Cart"
+>
+  <div
+    class="row mb-4"
+  >
+    <div
+      class="col"
+    >
+      <h1>
+        Shopping cart
+      </h1>
+      Cart is empty. Please select products in the 
+      <a
+        href="/catalog"
+      >
+        catalog
+      </a>
+      .
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Cart test produtcs added to cart are displayed 1`] = `
+<div
+  class="Cart"
+>
+  <div
+    class="row mb-4"
+  >
+    <div
+      class="col"
+    >
+      <h1>
+        Shopping cart
+      </h1>
+      <table
+        class="Cart-Table table"
+      >
+        <thead>
+          <tr>
+            <th
+              scope="col"
+            >
+              #
+            </th>
+            <th
+              scope="col"
+            >
+              Product
+            </th>
+            <th
+              scope="col"
+            >
+              Price
+            </th>
+            <th
+              scope="col"
+            >
+              Count
+            </th>
+            <th
+              scope="col"
+            >
+              Total
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            data-testid="5"
+          >
+            <th
+              class="Cart-Index"
+              scope="row"
+            >
+              1
+            </th>
+            <td
+              class="Cart-Name"
+            >
+              test 1
+            </td>
+            <td
+              class="Cart-Price"
+            >
+              $
+              10
+            </td>
+            <td
+              class="Cart-Count"
+            >
+              4
+            </td>
+            <td
+              class="Cart-Total"
+            >
+              $
+              40
+            </td>
+          </tr>
+          <tr
+            data-testid="6"
+          >
+            <th
+              class="Cart-Index"
+              scope="row"
+            >
+              2
+            </th>
+            <td
+              class="Cart-Name"
+            >
+              test 2
+            </td>
+            <td
+              class="Cart-Price"
+            >
+              $
+              20
+            </td>
+            <td
+              class="Cart-Count"
+            >
+              8
+            </td>
+            <td
+              class="Cart-Total"
+            >
+              $
+              160
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td
+              colspan="4"
+            >
+              Order price:
+            </td>
+            <td
+              class="Cart-OrderPrice"
+            >
+              $
+              200
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+  <div
+    class="row mb-4"
+  >
+    <div
+      class="col-6"
+    >
+      <button
+        class="Cart-Clear btn btn-outline-secondary"
+      >
+        Clear shopping cart
+      </button>
+    </div>
+  </div>
+  <div
+    class="row"
+  >
+    <div
+      class="col-12 col-sm-8 col-md-6 col-lg-4"
+    >
+      <h2>
+        Сheckout
+      </h2>
+      <div
+        class="Form"
+      >
+        <div
+          class="mb-3"
+        >
+          <label
+            class="form-label"
+            for="f-name"
+          >
+            Name
+          </label>
+          <input
+            autocomplete="off"
+            class="Form-Field Form-Field_type_name form-control"
+            id="f-name"
+            type="text"
+          />
+          <div
+            class="invalid-feedback"
+          >
+            Please provide your name
+          </div>
+        </div>
+        <div
+          class="mb-3"
+        >
+          <label
+            class="form-label"
+            for="f-phone"
+          >
+            Phone
+          </label>
+          <input
+            class="Form-Field Form-Field_type_phone form-control"
+            id="f-phone"
+            type="text"
+          />
+          <div
+            class="invalid-feedback"
+          >
+            Please provide a valid phone
+          </div>
+        </div>
+        <div
+          class="mb-3"
+        >
+          <label
+            class="form-label"
+            for="f-address"
+          >
+            Address
+          </label>
+          <textarea
+            class="Form-Field Form-Field_type_address form-control"
+            id="f-address"
+            rows="3"
+          />
+          <div
+            class="invalid-feedback"
+          >
+            Please provide a valid address
+          </div>
+        </div>
+        <button
+          class="Form-Submit btn btn-primary"
+        >
+          Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -15,35 +15,23 @@ const cartState = {
 describe('CartBadge test', () => {
     it('if an item is in the cart, a badge will be displayed', () => {
         const { application } = getApplication(
-            () => (
-                <div data-testid="badge">
-                    <CartBadge id={5} />
-                </div>
-            ),
+            () => <CartBadge id={5} />,
             cartState
         );
 
-        const { queryByTestId } = render(application);
+        const { container } = render(application);
 
-        expect(
-            queryByTestId('badge').childElementCount
-        ).toBeTruthy();
+        expect(container.firstChild).toMatchSnapshot();
     });
 
     it("if an item is't in the cart, a badge will't be displayed", () => {
         const { application } = getApplication(
-            () => (
-                <div data-testid="badge">
-                    <CartBadge id={6} />
-                </div>
-            ),
+            () => <CartBadge id={6} />,
             cartState
         );
 
-        const { queryByTestId } = render(application);
+        const { container } = render(application);
         
-        expect(
-            queryByTestId('badge').childElementCount
-        ).toBeFalsy();
+        expect(container.firstChild).toMatchSnapshot();
     });
 });
