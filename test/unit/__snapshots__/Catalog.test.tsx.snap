@@ -50,6 +50,11 @@ exports[`Catalog test Catalog page is visible 1`] = `
           >
             Details
           </a>
+          <span
+            class="CartBadge text-success mx-3"
+          >
+            Item in cart
+          </span>
         </div>
       </div>
     </div>

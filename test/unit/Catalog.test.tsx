@@ -20,7 +20,13 @@ describe('Catalog test', () => {
     it('Catalog page is visible', async () => {
         const { application, history, store } = getApplication(
             () => <Application />,
-            {}
+            {
+                2: {
+                    name: 'test',
+                    price: 10,
+                    count: 1,
+                },
+            }
         );
         history.push('/catalog');
 
